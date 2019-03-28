@@ -105,19 +105,15 @@ inner join payment on customer.customer_id = payment.customer_id
 group by customer.customer_id
 order by customer.last_name;
 
--- 7a
-
+-- 7a Movie titles starting with K and Q in English
 select title from film where title LIKE "K%" or title LIKE "Q%" and language_id 
 in (select language_id from language where name = "English");
 
-
--- 7b
-
+-- 7b Show all actors in Alone Trip
 Select first_name, last_name 
 from actor
 where actor_id in (Select actor_id from film_actor 
 where film_id in (select film_id from film where title = "Alone Trip"));
-
 
 -- 7c All Canadian customers
 select customer.first_name,customer.last_name,customer.email
